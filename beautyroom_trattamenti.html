@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Room by Sara — Estetica Ancona | Microblading, Extension Ciglia, Ceretta</title>
+<meta name="description" content="Beauty Room by Sara ad Ancona. Trattamenti estetici professionali: manicure, pedicure, ceretta, microblading, extension ciglia e laminazione. Solo su appuntamento. Corso G. Amendola 14.">
+<meta name="keywords" content="estetista Ancona, microblading Ancona, extension ciglia Ancona, ceretta Ancona, manicure Ancona, pedicure Ancona, beauty room Ancona">
+<meta property="og:title" content="Beauty Room by Sara — Ancona">
+<meta property="og:description" content="Trattamenti estetici professionali ad Ancona. Prenota il tuo appuntamento.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BeautySalon","name":"Beauty Room by Sara","address":{"@type":"PostalAddress","streetAddress":"Corso Giovanni Amendola 14","addressLocality":"Ancona","postalCode":"60123","addressCountry":"IT"},"telephone":"+393398265621","email":"saraleggieribeautyroom@gmail.com","openingHours":["Tu-Sa 08:30-19:00"],"priceRange":"€€"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #b89a6a;
+    --gold-light: #d4b896;
+    --gold-dark: #8c7350;
+    --brown: #3d2f20;
+    --brown-light: #6b5040;
+    --text: #2a1f14;
+    --text-muted: #7a6050;
+    --mauve: #7d5560;
+    --mauve-dark: #4a2e35;
+    --ivory: #e8ddd2;
+    --ivory-alt: #f0e9e0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--mauve);
+    color: var(--ivory);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(125,85,96,0.97);
+    border-bottom: 1px solid rgba(232,221,210,0.1);
+    transition: padding 0.3s;
+  }
+
+  nav.scrolled { padding: 13px 40px; }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ivory);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(232,221,210,0.7);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--ivory); }
+
+  .nav-ig {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, #c96a3c, #a03080, #4050c8);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: opacity 0.25s, transform 0.25s;
+  }
+
+  .nav-ig:hover { opacity: 0.85; transform: scale(1.04); }
+  .nav-ig svg { width: 14px; height: 14px; stroke: white; fill: none; stroke-width: 1.8; }
+  .nav-ig span { font-size: 0.6rem; letter-spacing: 0.2em; color: white; text-transform: uppercase; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--ivory);
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .hero-blob-1 {
+    width: 500px; height: 500px;
+    top: -120px; right: -120px;
+    background: radial-gradient(circle, rgba(184,154,106,0.13) 0%, transparent 70%);
+    animation: floatBlob 8s ease-in-out infinite;
+  }
+
+  .hero-blob-2 {
+    width: 400px; height: 400px;
+    bottom: -100px; left: -100px;
+    background: radial-gradient(circle, rgba(125,85,96,0.09) 0%, transparent 70%);
+    animation: floatBlob 11s ease-in-out infinite reverse;
+  }
+
+  @keyframes floatBlob {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(18px,-18px); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3.8rem, 10vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: 0.12em;
+    color: var(--brown);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.35s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gold);
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.5s forwards;
+  }
+
+  .hero-divider {
+    width: 70px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 32px auto;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.65s forwards;
+  }
+
+  .hero-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.8s forwards;
+    margin-bottom: 40px;
+  }
+
+  .hero-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #c96a3c, #a03080, #4050c8);
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.95s forwards;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 4px 20px rgba(160,48,128,0.28);
+  }
+
+  .hero-ig:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(160,48,128,0.4); }
+  .hero-ig svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 1.8; }
+  .hero-ig span { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: white; }
+
+  /* ── SECTIONS ── */
+  .section-ivory { background: var(--ivory); }
+  .section-ivory-alt { background: var(--ivory-alt); }
+
+  section {
+    padding: 90px 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 44px;
+  }
+
+  .section-line { flex: 0 0 44px; height: 1px; background: var(--gold); }
+  .section-line-right { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.9rem;
+    letter-spacing: 0.05em;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+
+  /* ── ACCORDION ── */
+  .accordion { display: flex; flex-direction: column; gap: 2px; }
+
+  .acc-item {
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    border-left: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .acc-item.open { border-color: var(--gold); }
+
+  .acc-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+
+  .acc-trigger:hover { background: rgba(184,154,106,0.05); }
+
+  .acc-left { display: flex; align-items: center; gap: 14px; }
+  .acc-icon { font-size: 1.15rem; flex-shrink: 0; }
+
+  .acc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--brown);
+    letter-spacing: 0.03em;
+  }
+
+  .acc-chevron {
+    width: 15px; height: 15px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .acc-item.open .acc-chevron { transform: rotate(180deg); }
+
+  .acc-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.38s ease;
+  }
+
+  .acc-item.open .acc-body { max-height: 200px; }
+
+  .acc-desc {
+    padding: 0 24px 20px 54px;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+    color: var(--text-muted);
+  }
+
+  /* ── CERETTA TABS ── */
+  .ceretta-tabs {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 20px;
+  }
+
+  .ceretta-tab {
+    flex: 1;
+    padding: 14px;
+    background: rgba(184,154,106,0.12);
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    transition: background 0.25s, color 0.25s;
+    border-radius: 2px;
+  }
+
+  .ceretta-tab.active { background: var(--gold); color: white; }
+
+  .ceretta-panel { display: none; }
+  .ceretta-panel.active { display: block; }
+
+  .ceretta-desc {
+    background: white;
+    border-left: 2px solid var(--gold);
+    padding: 24px 28px;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+    color: var(--text-muted);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .ceretta-zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .ceretta-zone {
+    background: rgba(184,154,106,0.1);
+    border: 1px solid rgba(184,154,106,0.3);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+  }
+
+  .section-note {
+    text-align: center;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px dashed rgba(184,154,106,0.3);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* ── CTA ── */
+  .cta-wrap { text-align: center; margin-top: 50px; }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 16px 44px;
+    border: 1px solid var(--gold);
+    color: var(--gold-dark);
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.35s, background 0.35s;
+  }
+
+  .cta-btn:hover { background: var(--gold); color: var(--ivory); }
+
+  /* ── CONTATTI ── */
+  .section-mauve { background: var(--mauve); }
+  .section-mauve .section-title { color: var(--ivory); }
+  .section-mauve .section-line { background: var(--gold-light); }
+  .section-mauve .section-line-right { background: linear-gradient(90deg, var(--gold-light), transparent); }
+
+  .orari-box { text-align: center; margin-bottom: 44px; }
+  .orari-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(232,221,210,0.45); margin-bottom: 14px; }
+  .orari-giorni { font-size: 0.82rem; letter-spacing: 0.12em; color: var(--ivory); margin-bottom: 8px; }
+  .orari-time { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); letter-spacing: 0.1em; }
+  .orari-chiuso { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(232,221,210,0.38); margin-top: 8px; }
+
+  .social-row { display: flex; justify-content: center; gap: 14px; margin-bottom: 44px; }
+
+  .social-btn {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(232,221,210,0.13);
+    border: 1px solid rgba(232,221,210,0.18);
+    text-decoration: none;
+    transition: transform 0.25s, background 0.25s;
+  }
+
+  .social-btn:hover { transform: translateY(-3px); background: rgba(232,221,210,0.22); }
+  .social-btn svg { width: 18px; height: 18px; stroke: var(--ivory); fill: none; stroke-width: 1.6; }
+
+  .social-btn.ig {
+    background: linear-gradient(135deg, rgba(201,106,60,0.7), rgba(160,48,128,0.7), rgba(64,80,200,0.7));
+    border-color: transparent;
+    width: 56px; height: 56px;
+  }
+
+  .social-btn.ig:hover { transform: translateY(-3px) scale(1.08); }
+  .social-btn.ig svg { width: 22px; height: 22px; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 12px; }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 17px 20px;
+    background: white;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    outline: none;
+    transition: box-shadow 0.25s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus { box-shadow: 0 0 0 2px var(--gold-light); }
+
+  .contact-form textarea { resize: vertical; }
+
+  .btn-invia {
+    align-self: flex-end;
+    padding: 14px 38px;
+    background: var(--gold-light);
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--brown);
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-invia:hover { background: var(--gold); transform: translateY(-2px); }
+
+  .map-link {
+    display: block;
+    text-align: center;
+    margin-top: 36px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(232,221,210,0.12);
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .map-link:hover { color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--mauve-dark);
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    display: block;
+  }
+
+  .footer-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .footer-div { width: 50px; height: 1px; background: var(--gold); margin: 22px auto; }
+
+  .footer-note {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(232,221,210,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 14px 16px; }
+    .nav-links { display: none; }
+    .nav-ig span { display: none; }
+    .nav-ig { padding: 8px 10px; }
+    section { padding: 60px 16px; }
+    .acc-desc { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Beauty Room <em>by Sara</em></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#mani">Mani & Piedi</a></li>
+      <li><a href="#ceretta">Epilazione</a></li>
+      <li><a href="#ciglia">Ciglia & Viso</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <a href="https://www.instagram.com/saraleggieri_phibrows?igsh=MWg5cmYwbXE0NGVlaQ==" target="_blank" class="nav-ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <span>Instagram</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <p class="hero-eyebrow">I nostri trattamenti · Solo su appuntamento</p>
+  <h1 class="hero-title">Beauty<br>Room</h1>
+  <p class="hero-subtitle">by Sara</p>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Estetica di base · Microblading · Extension Ciglia</p>
+  <a href="https://www.instagram.com/saraleggieri_phibrows?igsh=MWg5cmYwbXE0NGVlaQ==" target="_blank" class="hero-ig">
+    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    <span>Seguimi su Instagram</span>
+  </a>
+</div>
+
+<!-- MANI -->
+<div id="mani" class="section-ivory">
+<section>
+  <div class="section-header reveal">
+    <span class="section-line"></span>
+    <h2 class="section-title">Mani</h2>
+    <span class="section-line-right"></span>
+  </div>
+  <div class="accordion">
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">💅</span><span class="acc-name">Manicure con smalto</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Trattamento completo: limatura, cuticole, idratazione e applicazione dello smalto a scelta dalla nostra selezione di colori.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">✋</span><span class="acc-name">Manicure uomo</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Manicure professionale senza smalto per l'uomo. Limatura, cura delle cuticole e massaggio idratante per mani curate e naturali.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">✨</span><span class="acc-name">Semipermanente rinforzato</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Smalto semipermanente con strato rinforzante per maggiore durata e resistenza. Unghie impeccabili fino a 3–4 settimane.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">💎</span><span class="acc-name">Copertura Gel / Acrygel</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Gel o acrygel per proteggere, rinforzare e allungare l'unghia naturale. Aspetto naturale e resistente nel tempo.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🌟</span><span class="acc-name">Ricostruzione unghie</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Ricostruzione completa con prodotti professionali fino alla misura 3. Ideale per allungare o correggere unghie danneggiate.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🔄</span><span class="acc-name">Rimozione con manicure</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Rimozione sicura di gel, acrygel o semipermanente seguita da manicure completa per il ripristino dell'unghia naturale.</p></div></div>
+  </div>
+  <p class="section-note reveal">French · Babyboomer · Strass · Disegni personalizzati</p>
+</section>
+</div>
+
+<!-- PIEDI -->
+<div id="piedi" class="section-ivory-alt">
+<section>
+  <div class="section-header reveal">
+    <span class="section-line"></span>
+    <h2 class="section-title">Piedi</h2>
+    <span class="section-line-right"></span>
+  </div>
+  <div class="accordion">
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🦶</span><span class="acc-name">Pedicure estetico</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Bagno rilassante, cura delle cuticole, limatura e levigatura, massaggio idratante. Con o senza smalto a scelta.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">⚕️</span><span class="acc-name">Pedicure profondo</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Trattamento intensivo per unghie difficili, ispessite o incarnite. Intervento mirato con strumenti professionali.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">💅</span><span class="acc-name">Pedicure con semipermanente</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Pedicure estetico o profondo abbinato al semipermanente per un risultato brillante e duraturo per settimane.</p></div></div>
+  </div>
+</section>
+</div>
+
+<!-- CERETTA -->
+<div id="ceretta" class="section-ivory">
+<section>
+  <div class="section-header reveal">
+    <span class="section-line"></span>
+    <h2 class="section-title">Epilazione</h2>
+    <span class="section-line-right"></span>
+  </div>
+  <div class="ceretta-tabs reveal">
+    <button class="ceretta-tab active" onclick="switchTab(this,'tab-lipo')">🕯 Liposolubile</button>
+    <button class="ceretta-tab" onclick="switchTab(this,'tab-bras')">🌿 Brasiliana</button>
+  </div>
+  <div id="tab-lipo" class="ceretta-panel active reveal">
+    <div class="ceretta-desc">Cera a base oleosa che aderisce al pelo senza attaccarsi alla pelle. Meno traumatica, ideale per le zone più delicate. Particolarmente adatta alle pelli sensibili.
+      <div class="ceretta-zones">
+        <span class="ceretta-zone">Sopracciglia</span><span class="ceretta-zone">Baffetto</span><span class="ceretta-zone">Mento</span><span class="ceretta-zone">Glutei</span><span class="ceretta-zone">Petto + Addome</span><span class="ceretta-zone">½ Gamba</span><span class="ceretta-zone">Schiena uomo</span>
+      </div>
+    </div>
+  </div>
+  <div id="tab-bras" class="ceretta-panel">
+    <div class="ceretta-desc">Cera elastica di alta qualità che si rimuove senza strisce, riducendo il dolore e rispettando la pelle. Perfetta per grandi zone del corpo con risultati duraturi.
+      <div class="ceretta-zones">
+        <span class="ceretta-zone">Gambe intere</span><span class="ceretta-zone">Ascelle</span><span class="ceretta-zone">Braccia</span><span class="ceretta-zone">Inguine completo</span><span class="ceretta-zone">Bikini</span><span class="ceretta-zone">Narici / Lobo</span><span class="ceretta-zone">Schiena uomo</span>
+      </div>
+    </div>
+  </div>
+  <p class="section-note reveal">Disponibile per donna e uomo · Viso, corpo e zone intime</p>
+</section>
+</div>
+
+<!-- CIGLIA & VISO -->
+<div id="ciglia" class="section-ivory-alt">
+<section>
+  <div class="section-header reveal">
+    <span class="section-line"></span>
+    <h2 class="section-title">Laminazione</h2>
+    <span class="section-line-right"></span>
+  </div>
+  <div class="accordion">
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">👁️</span><span class="acc-name">Laminazione Ciglia</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Piega e fissa le ciglia verso l'alto donando volume e curvatura naturale senza mascara. Effetto sguardo aperto per 6–8 settimane.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🤨</span><span class="acc-name">Laminazione Sopracciglia</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Fissa e disciplina i peli in una forma definita e ordinata, riempiendo eventuali vuoti per un aspetto folto e curato.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🌸</span><span class="acc-name">Laminazione Coreana</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Versione avanzata che combina ristrutturazione e nutrimento profondo. Risultato ultra-brillante dalla tenuta superiore.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">✦</span><span class="acc-name">Ciglia + Sopracciglia (combo)</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Laminazione di ciglia e sopracciglia in un'unica seduta. Sguardo completamente incorniciato e armonioso.</p></div></div>
+  </div>
+
+  <div class="section-header reveal" style="margin-top:68px;">
+    <span class="section-line"></span>
+    <h2 class="section-title">Extension Ciglia</h2>
+    <span class="section-line-right"></span>
+  </div>
+  <div class="accordion">
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🪡</span><span class="acc-name">Extension 1 to 1</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Un'extension per ogni ciglio naturale. Risultato naturale e leggero, ideale per chi vuole allungare e definire lo sguardo con eleganza.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🌿</span><span class="acc-name">Extension Ibride / Volume</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Combina extension singole e a mazzetto per uno sguardo voluminoso e intenso. Perfetta per chi ama un effetto pieno e avvolgente.</p></div></div>
+  </div>
+
+  <div class="section-header reveal" style="margin-top:68px;">
+    <span class="section-line"></span>
+    <h2 class="section-title">Microblading</h2>
+    <span class="section-line-right"></span>
+  </div>
+  <div class="accordion">
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🖊️</span><span class="acc-name">Microblading Sopracciglia</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Tecnica semipermanente che disegna capello per capello. Risultato naturale e preciso, dura 12–18 mesi. Include ritocco.</p></div></div>
+    <div class="acc-item reveal"><button class="acc-trigger" onclick="toggleAcc(this)"><div class="acc-left"><span class="acc-icon">🔁</span><span class="acc-name">Rimozione Microblading</span></div><svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="acc-body"><p class="acc-desc">Rimozione progressiva e sicura del pigmento semipermanente. Numero di sedute variabile in base a profondità e intensità del colore.</p></div></div>
+  </div>
+
+  <div class="cta-wrap reveal">
+    <a href="https://wa.me/393398265621" target="_blank" class="cta-btn">Prenota un appuntamento</a>
+  </div>
+</section>
+</div>
+
+<!-- CONTATTI -->
+<div id="contatti" class="section-mauve">
+<section style="max-width:680px;">
+  <div class="section-header reveal">
+    <span class="section-line"></span>
+    <h2 class="section-title">Contatti</h2>
+    <span class="section-line-right"></span>
+  </div>
+
+  <div class="orari-box reveal">
+    <p class="orari-label">Orari di apertura</p>
+    <p class="orari-giorni">Martedì – Mercoledì – Giovedì – Venerdì – Sabato</p>
+    <p class="orari-time">08:30 – 19:00</p>
+    <p class="orari-chiuso">Lunedì e Domenica — CHIUSO</p>
+  </div>
+
+  <div class="social-row reveal">
+    <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/saraleggieri_phibrows?igsh=MWg5cmYwbXE0NGVlaQ==" target="_blank" class="social-btn ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://wa.me/393398265621" target="_blank" class="social-btn" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--ivory)" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+    </a>
+  </div>
+
+  <div class="contact-form reveal">
+    <input type="text" placeholder="Nome *">
+    <input type="email" placeholder="Email *">
+    <input type="tel" placeholder="Telefono">
+    <textarea placeholder="Messaggio" rows="5"></textarea>
+    <button class="btn-invia" onclick="inviaWA()">INVIA</button>
+  </div>
+
+  <a href="https://maps.google.com/?q=Corso+Giovanni+Amendola+14,+60123+Ancona" target="_blank" class="map-link">VAI ALLA MAPPA &nbsp;›</a>
+</section>
+</div>
+
+<footer>
+  <span class="footer-logo">Beauty Room</span>
+  <span class="footer-sub">by Sara</span>
+  <div class="footer-div"></div>
+  <p class="footer-note">Solo su appuntamento · Corso G. Amendola 14</p>
+</footer>
+
+<script>
+  // WhatsApp form send
+  function inviaWA() {
+    const nome = document.querySelector('.contact-form input[type="text"]').value.trim();
+    const email = document.querySelector('.contact-form input[type="email"]').value.trim();
+    const tel = document.querySelector('.contact-form input[type="tel"]').value.trim();
+    const msg = document.querySelector('.contact-form textarea').value.trim();
+
+    if (!nome || !email) {
+      alert('Per favore inserisci almeno Nome ed Email.');
+      return;
+    }
+
+    let testo = `Ciao Sara! 👋\n\n`;
+    testo += `*Nome:* ${nome}\n`;
+    testo += `*Email:* ${email}\n`;
+    if (tel) testo += `*Telefono:* ${tel}\n`;
+    if (msg) testo += `\n*Messaggio:*\n${msg}`;
+
+    const url = `https://wa.me/393398265621?text=${encodeURIComponent(testo)}`;
+    window.open(url, '_blank');
+  }
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 50);
+  }, { passive: true });
+
+  // Scroll reveal with stagger
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    let delay = 0;
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), delay);
+        delay += 65;
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+  revealEls.forEach(el => obs.observe(el));
+
+  // Accordion
+  function toggleAcc(btn) {
+    const item = btn.closest('.acc-item');
+    const isOpen = item.classList.contains('open');
+    btn.closest('.accordion').querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Ceretta tabs
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.ceretta-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ceretta-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+</script>
+</body>
+</html>
